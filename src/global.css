@@ -39,13 +39,14 @@ html,
 body {
   height: 100%;
   width: 100%;
+  background-color: #121212;
+  color: #e0e0e0;
 }
 
 body {
   line-height: 1.5;
   font-weight: 400;
   font-size: 16px;
-  color: #1a1a1a;
 }
 
 h1,
@@ -56,13 +57,14 @@ h5,
 h6 {
   font-weight: 600;
   line-height: 1.2;
+  color: #e0e0e0;
 }
 
 a {
-  color: #444444;
+  color: #e0e0e0;
 }
 a:hover {
-  color: #888888;
+  color: #b0b0b0;
 }
 
 button {
@@ -70,14 +72,22 @@ button {
   border: none;
   background: none;
   cursor: pointer;
+  color: #e0e0e0;
 }
 
 input,
 textarea {
   font: inherit;
+  background: #333;
+  color: #e0e0e0;
+  border: 1px solid #444;
 }
 
-/* Add these new styles */
+input:focus,
+textarea:focus {
+  border-color: #e0e0e0;
+}
+
 .url-container {
   display: flex;
   align-items: center;
@@ -85,25 +95,24 @@ textarea {
   margin-top: 16px;
 }
 
-/* Add this new style */
 .content-container {
   max-width: 36rem;
   text-align: center;
   padding: 0 8px;
 }
 
-/* Update url-input width to be 100% since container will control max width */
 .url-input {
   padding: 8px 12px;
-  border: 1px solid #ddd;
+  border: 1px solid #444;
   border-radius: 4px;
   width: 100%;
-  background: #f5f5f5;
+  background: #333;
+  color: #e0e0e0;
 }
 
 .copy-button {
   padding: 8px;
-  color: #666;
+  color: #e0e0e0;
   border-radius: 4px;
   transition: all 0.2s;
   display: flex;
@@ -112,11 +121,11 @@ textarea {
 }
 
 .copy-button:hover {
-  background: #f0f0f0;
+  background: #444;
 }
 
 .copy-button:active {
-  background: #e5e5e5;
+  background: #555;
 }
 
 .copy-button img {
@@ -125,7 +134,7 @@ textarea {
 }
 
 .copy-button.copied {
-  background: #28a745;
+  background: #666;
 }
 
 /* Add footer styles */
@@ -136,15 +145,15 @@ textarea {
   right: 0;
   text-align: center;
   font-size: 14px;
-  color: #666;
+  color: #888;
 }
 
 .footer a {
-  color: #666;
+  color: #e0e0e0;
   text-decoration: none;
   font-weight: 500;
 }
 
 .footer a:hover {
-  color: #333;
+  color: #b0b0b0;
 }
