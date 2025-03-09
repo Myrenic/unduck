@@ -1,8 +1,11 @@
 services:
   web-server:
-    build:
-      context: .
-      dockerfile: docker/Dockerfile
-    restart: 'unless-stopped'
+    image: ghcr.io/myrenic/unduck:latest
+    restart: unless-stopped
     ports:
-      - 80:80
+      - "80:80"
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
