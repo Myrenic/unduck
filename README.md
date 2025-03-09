@@ -6,24 +6,30 @@ DuckDuckGo's bang redirects are too slow. Add the following URL as a custom sear
 https://unduck.link?q=%s
 ```
 
-## How is it that much faster?
-
-DuckDuckGo does their redirects server side. Their DNS is...not always great. Result is that it often takes ages.
-
-I solved this by doing all of the work client side. Once you've went to https://unduck.link once, the JS is all cache'd and will never need to be downloaded again. Your device does the redirects, not me.
-
 ## Running locally via Docker
 
-Build and run via docker compose
-```sh
-docker compose up
+Using Docker Compose:
+
+```yaml
+version: '3.8'
+
+services:
+  unduck:
+    image: ghcr.io/myrenic/unduck:latest
+    restart: unless-stopped
+    ports:
+      - "1234:80"
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
 ```
 
-Or without compose
-```sh
-# build
-docker build -t unduck:latest -f docker/Dockerfile .
+Or run manually:
 
+```sh
 # run
-docker run --rm -p 80:80 unduck:latest 
+docker run --rm -p 1234:80 ghcr.io/myrenic/unduck:latest
 ```
+
